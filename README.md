@@ -1,2 +1,2 @@
-# blue-core
-service:LLM Client Core
+# yyyoink-llm
+service:Compression, Binary, and LLM Toolkit Language Model Core
