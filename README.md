@@ -1,2 +1,2 @@
-# yyyoink-llm
-service:Compression, Binary, and LLM Toolkit Language Model Core
+# craft-llm
+service:LLM Language Model Core
