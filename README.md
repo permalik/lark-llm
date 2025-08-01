@@ -1,2 +1,2 @@
-# yyyoink-llm
-service:LLM Language Model Core
+# lark-llm
+service:LLM Client Core
