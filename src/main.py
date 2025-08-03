@@ -2,24 +2,12 @@
 main
 """
 
-from ollama import chat
-
-stream = chat(
-    model="gemma2:2b",
-    messages=[
-        {
-            "role": "user",
-            "content": "Why is the sky blue?",
-        }
-    ],
-    stream=True,
-)
+from events import consumer
 
 
 def main():
-    print("Starting llm..")
-    for chunk in stream:
-        print(chunk["message"]["content"], end="", flush=True)
+    print("Starting lark-llm..")
+    consumer.inference_request()
 
 
 if __name__ == "__main__":
