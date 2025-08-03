@@ -12,7 +12,7 @@ def inference_request():
         bootstrap_servers=["localhost:9092"],
         auto_offset_reset="earliest",
         enable_auto_commit=True,
-        group_id="llm-lark",
+        group_id="llm-llm",
         value_deserializer=lambda m: json.loads(m.decode("utf-8")),
     )
 
