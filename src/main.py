@@ -3,10 +3,11 @@ main
 """
 
 from events import consumer
+from utilities import lg
 
 
 def main():
-    print("Starting lark-llm..")
+    lg.logger.info("Starting lark-llm..")
     consumer.inference_request()
 
 

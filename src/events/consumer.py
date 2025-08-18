@@ -4,6 +4,7 @@ from kafka import KafkaConsumer
 
 from events import producer
 from gemma import essence
+from utilities import lg
 
 
 def inference_request():
@@ -17,7 +18,7 @@ def inference_request():
     )
 
     for msg in consumer:
-        print("Raw string:", msg.value)
+        lg.logger.info("consumed:\n{value}", value=msg.value)
         producer.inference_result()
         response = essence.generate_response("user", "Why is the sky blue?")
         print(response)

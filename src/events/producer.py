@@ -2,6 +2,8 @@ import json
 
 from kafka import KafkaProducer
 
+from utilities import lg
+
 
 def inference_result():
     producer = KafkaProducer(
@@ -11,4 +13,5 @@ def inference_result():
     topic = "inference.result"
     message = {"id": 1, "content": "Hello from Python producer"}
     producer.send(topic, message)
+    lg.logger.info("produced:\n{value}", value=message)
     producer.flush()
