@@ -1,8 +1,17 @@
 #!/bin/sh
 
+TRUNCATE=$1
+
 if [ -z "$SHELLED" ]; then
     export SHELLED=1
     exec "$SHELL" "$0" "$@"
 fi
 
-python3 ./src/main.py
+if [ "$TRUNCATE" = "y" ]; then
+    python3 ./src/main.py 2>&1 | sed 's/\x1b\[[0-9;]*m//g' > logs/out.log
+elif [ "$TRUNCATE" = "n" ]; then
+    python3 ./src/main.py 2>&1 | sed 's/\x1b\[[0-9;]*m//g' >> logs/out.log
+else
+    echo "Usage: ./start.sh <y|n> (truncate logs)"
+    exit 1
+fi
