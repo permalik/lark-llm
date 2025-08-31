@@ -8,8 +8,12 @@ if [ -z "$SHELLED" ]; then
 fi
 
 if [ "$TRUNCATE" = "y" ]; then
+    # TODO: check if venv is activated
+    . venv/bin/activate
     python3 ./src/main.py 2>&1 | sed 's/\x1b\[[0-9;]*m//g' > logs/out.log
 elif [ "$TRUNCATE" = "n" ]; then
+    # TODO: check if venv is activated
+    . venv/bin/activate
     python3 ./src/main.py 2>&1 | sed 's/\x1b\[[0-9;]*m//g' >> logs/out.log
 else
     echo "Usage: ./start.sh <y|n> (truncate logs)"
